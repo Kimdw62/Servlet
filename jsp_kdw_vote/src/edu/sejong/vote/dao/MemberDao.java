@@ -35,15 +35,12 @@ public class MemberDao {
 		ResultSet rs = null;
 
 		try {
-			String sql = "SELECT a.*, b.p_name," + 
-					"    case when a.p_school = '1' then '고졸'" + 
-					"         when a.p_school = '2' then '학사'" + 
-					"         when a.p_school = '3' then '석사'" + 
-					"         when a.p_school = '4' then '박사'" + 
-					"    end as t_school," + 
-					" trim(b.p_tel1) || '-' || trim(b.p_tel2) || '-' || trim(b.p_tel3) as p_tel" +
-					" FROM MEMBER a inner join PARTY b" + 
-					" on a.p_code = b.p_code" + 
+			String sql = "SELECT a.*, b.p_name, c.t_school,\r\n" + 
+					" 	trim(b.p_tel1) || '-' || trim(b.p_tel2) || '-' || trim(b.p_tel3) as p_tel\r\n" + 
+					" FROM MEMBER a inner join PARTY b\r\n" + 
+					" on a.p_code = b.p_code\r\n" + 
+					" inner join SCHOOL c\r\n" + 
+					" on a.p_school = c.p_school\r\n" + 
 					" order by m_no"; 
 			System.out.println("sql = " + sql);
 

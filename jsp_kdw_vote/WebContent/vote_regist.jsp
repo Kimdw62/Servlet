@@ -68,20 +68,20 @@
               </div>
  -->
               <form action="${pageContext.request.contextPath}/vote/vote_write.do" method="POST">
-				  <div class="row mb-3 d-flex form-control">
+				  <div class="column mb-3 d-flex form-control">
 				    <label for="inputJumin" class="col-sm-2 col-form-label">주민번호</label>
 				    <div class="col-sm-6">
 				      <input type="text" class="form-control" id="v_jumin" name="v_jumin" maxlength="13" />
 				    </div>
-				    <label for="inputJumin" class="col-sm-4 col-form-label">예 : 8906153154726</label>
+				    <label for="inputJumin" class="col-sm-4 mx-3 col-form-label">예 : 8906153154726</label>
 				  </div>
-				  <div class="row mb-3 d-flex form-control">
+				  <div class="column mb-3 d-flex form-control">
 				    <label for="inputName" class="col-sm-2 col-form-label">성명</label>
 				    <div class="col-sm-6">
 				      <input type="text" class="form-control" id="v_name" name="v_name" />
 				    </div>
 				  </div>
-				  <div class="row mb-3 d-flex form-control">
+				  <div class="column mb-3 d-flex form-control">
 				    <label for="inputNo" class="col-sm-2 col-form-label">후보번호</label>
 				    <div class="col-sm-6">
 				      <select class="form-select" name="m_no" aria-label="Default select example">
@@ -92,14 +92,13 @@
 				      </select>
 				    </div>
 				  </div>
-				  <div class="row mb-3 d-flex form-control">
+				  <div class="column mb-3 d-flex form-control">
 				    <label for="inputTime" class="col-sm-2 col-form-label">투표시간</label>
 				    <div class="col-sm-6">
 				      <input type="text" class="form-control" id="v_time" name="v_time" maxlength="5" />
 				    </div>
 				  </div>
-
-				  <div class="row mb-3 d-flex form-control">
+				  <div class="column mb-3 d-flex form-control">
 				    <label for="inputArea" class="col-sm-2 col-form-label">투표장소</label>
 				    <div class="col-sm-6">
 				      <select class="form-select" name="v_area" aria-label="Default select example">
@@ -110,25 +109,24 @@
 				      </select>
 				    </div>
 				  </div>
-
-				  <div class="row mb-3 form-control" >
-				    <label for="inputName" class="col-sm-3 col-form-label">유권자확인</label>
- 					<div class="form-check form-check-inline">
-					  <input class="form-check-input" type="radio" name="v_confirm" id="inlineRadio1" value="Y">
-					  <label class="form-check-label" for="inlineRadio1">확인</label>
-					</div>
-					<div class="form-check form-check-inline">
-					  <input class="form-check-input" type="radio" name="v_confirm" id="inlineRadio2" value="N">
-					  <label class="form-check-label" for="inlineRadio2">미확인</label>
-					</div>
- 				  </div>
-
+				  <div class="column d-flex form-control" >
+				    <label for="inputName" class="col-sm-2 col-form-label">유권자확인</label>
+				    <div class="d-flex form-control">
+	 					<div>
+						  <input class="form-check-input" type="radio" name="v_confirm" id="inlineRadio1" value="Y">
+						  <label class="form-check-label me-md-3" for="inlineRadio1">확인</label>
+						</div>
+						<div>
+						  <input class="form-check-input" type="radio" name="v_confirm" id="inlineRadio2" value="N">
+						  <label class="form-check-label" for="inlineRadio2">미확인</label>
+						</div>
+ 				    </div>
+				  </div>
 	              <div class="mt-3 d-flex justify-content-center">
 	                <button class="btn btn-success me-md-2" type="submit">투표하기</button>
 	                <button class="btn btn-danger"><a class="nav-link active" href="${pageContext.request.contextPath}/vote/vote_regist.do">다시하기</a></button>
 	              </div>
                </form>
-
 
             </div>
           </div>
@@ -162,3 +160,35 @@
 
 </body>
 </html>
+
+
+<!--
+				1) 
+				  <div class="row mb-3 form-control" >
+				    <label for="inputName" class="col-sm-3 col-form-label">유권자확인</label>
+ 					<div class="form-check form-check-inline">
+					  <input class="form-check-input" type="radio" name="v_confirm" id="inlineRadio1" value="Y">
+					  <label class="form-check-label" for="inlineRadio1">확인</label>
+					</div>
+					<div class="form-check form-check-inline">
+					  <input class="form-check-input" type="radio" name="v_confirm" id="inlineRadio2" value="N">
+					  <label class="form-check-label" for="inlineRadio2">미확인</label>
+					</div>
+ 				  </div>
+ 				  
+				2)
+				  <div class="column d-flex form-control" >
+				    <label for="inputName" class="col-sm-2 col-form-label">유권자확인</label>
+				    <div class="d-flex form-control">
+	 					<div>
+						  <input class="form-check-input" type="radio" name="v_confirm" id="inlineRadio1" value="Y">
+						  <label class="form-check-label me-md-3" for="inlineRadio1">확인</label>
+						</div>
+						<div>
+						  <input class="form-check-input" type="radio" name="v_confirm" id="inlineRadio2" value="N">
+						  <label class="form-check-label" for="inlineRadio2">미확인</label>
+						</div>
+ 				    </div>
+				  </div>
+ 				  
+ -->

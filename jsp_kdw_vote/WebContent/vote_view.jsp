@@ -54,7 +54,7 @@
   <main>
  	<div class="container mt-3">
       <div class="container">
-        <h3 class="text-center mb-3">투표검수</h3>
+        <h3 class="text-center mb-3">투표수정</h3>
         <div class="row">
           <div class="card col-md-6 offset-md-3 offset-md-3">
 <!--        <h3 class="text-center mt-5">업데이트도 할수 있어요</h3> -->
@@ -68,20 +68,20 @@
               </div>
  -->
               <form action="${pageContext.request.contextPath}/vote/vote_modify.do" method="POST">
-				  <div class="row mb-3 d-flex form-control">
+				  <div class="column mb-3 d-flex form-control">
 				    <label for="inputJumin" class="col-sm-2 col-form-label">주민번호</label>
 				    <div class="col-sm-6">
 				      <input type="text" class="form-control" id="v_jumin" name="v_jumin" value="${vote.v_jumin}" readonly />
 				    </div>
-				    <label for="inputJumin" class="col-sm-4 col-form-label">예 : 8906153154726</label>
+				    <label for="inputJumin" class="col-sm-4 mx-3 col-form-label">예 : 8906153154726</label>
 				  </div>
-				  <div class="row mb-3 d-flex form-control">
+				  <div class="column mb-3 d-flex form-control">
 				    <label for="inputName" class="col-sm-2 col-form-label">성명</label>
 				    <div class="col-sm-6">
 				      <input type="text" class="form-control" id="v_name" name="v_name" value="${vote.v_name}" />
 				    </div>
 				  </div>
-				  <div class="row mb-3 d-flex form-control">
+				  <div class="column mb-3 d-flex form-control">
 				    <label for="inputNo" class="col-sm-2 col-form-label">후보선택</label>
 				    <div class="col-sm-6">
 				      <select class="form-select" name="m_no" aria-label="Default select example">
@@ -95,13 +95,13 @@
 				      </select>
 				    </div>
 				  </div>
-				  <div class="row mb-3 d-flex form-control">
+				  <div class="column mb-3 d-flex form-control">
 				    <label for="inputTime" class="col-sm-2 col-form-label">투표시간</label>
 				    <div class="col-sm-6">
 				      <input type="text" class="form-control" id="v_time" name="v_time" value="${vote.v_time}" />
 				    </div>
 				  </div>
-				  <div class="row mb-3 d-flex form-control">
+				  <div class="column mb-3 d-flex form-control">
 				    <label for="inputArea" class="col-sm-2 col-form-label">투표장소</label>
 				    <div class="col-sm-6">
 				      <select class="form-select" name="v_area" aria-label="Default select example">
@@ -115,25 +115,28 @@
 				      </select>
 				    </div>
 				  </div>
-				  <div class="row mb-3 d-flex form-control" >
-				    <label for="inputName" class="col-sm-3 col-form-label">유권자확인</label>
- 					<div class="form-check form-check-inline">
-					  <c:set var="chk" value=""></c:set>
-					  <c:if test="${vote.v_confirm == 'Y'}">
-						<c:set var="chk" value="checked"></c:set>
-					  </c:if>
-					  <input ${chk} class="form-check-input" type="radio" name="v_confirm" id="inlineRadio1" value="Y">
-					  <label class="form-check-label" for="inlineRadio1">확인</label>
-					</div>
-					<div class="form-check form-check-inline">
-					  <c:set var="chk" value=""></c:set>
-					  <c:if test="${vote.v_confirm == 'N'}">
-						<c:set var="chk" value="checked"></c:set>
-					  </c:if>
-					  <input ${chk} class="form-check-input" type="radio" name="v_confirm" id="inlineRadio2" value="N">
-					  <label class="form-check-label" for="inlineRadio2">미확인</label>
-					</div>
+				  <div class="column d-flex form-control" >
+				    <label for="inputName" class="col-sm-2 col-form-label">유권자확인</label>
+				    <div class="d-flex form-control">
+	 					<div>
+						  <c:set var="chk" value=""></c:set>
+						  <c:if test="${vote.v_confirm == 'Y'}">
+							<c:set var="chk" value="checked"></c:set>
+						  </c:if>
+						  <input ${chk} class="form-check-input" type="radio" name="v_confirm" id="inlineRadio1" value="Y">
+						  <label class="form-check-label me-md-3" for="inlineRadio1">확인</label>
+						</div>
+						<div>
+						  <c:set var="chk" value=""></c:set>
+						  <c:if test="${vote.v_confirm == 'N'}">
+							<c:set var="chk" value="checked"></c:set>
+						  </c:if>
+						  <input ${chk} class="form-check-input" type="radio" name="v_confirm" id="inlineRadio2" value="N">
+						  <label class="form-check-label" for="inlineRadio2">미확인</label>
+						</div>
+ 				    </div>
  				  </div>
+ 				  
 	              <div class="mt-3 d-flex justify-content-center">
 	                <button class="btn btn-success me-md-2" type="submit">Update</button>
 	                <button class="btn btn-danger"><a class="nav-link active" href="${pageContext.request.contextPath}/vote/vote_list.do">Cancel</a></button>
@@ -172,3 +175,48 @@
 
 </body>
 </html>
+
+<%-- 
+				  <div class="row mb-3 d-flex form-control" >
+				    <label for="inputName" class="col-sm-3 col-form-label">유권자확인</label>
+ 					<div class="form-check form-check-inline">
+					  <c:set var="chk" value=""></c:set>
+					  <c:if test="${vote.v_confirm == 'Y'}">
+						<c:set var="chk" value="checked"></c:set>
+					  </c:if>
+					  <input ${chk} class="form-check-input" type="radio" name="v_confirm" id="inlineRadio1" value="Y">
+					  <label class="form-check-label" for="inlineRadio1">확인</label>
+					</div>
+					<div class="form-check form-check-inline">
+					  <c:set var="chk" value=""></c:set>
+					  <c:if test="${vote.v_confirm == 'N'}">
+						<c:set var="chk" value="checked"></c:set>
+					  </c:if>
+					  <input ${chk} class="form-check-input" type="radio" name="v_confirm" id="inlineRadio2" value="N">
+					  <label class="form-check-label" for="inlineRadio2">미확인</label>
+					</div>
+ 				  </div>
+ 
+ 
+ 				  <div class="column d-flex form-control" >
+				    <label for="inputName" class="col-sm-2 col-form-label">유권자확인</label>
+				    <div class="d-flex form-control">
+	 					<div>
+						  <c:set var="chk" value=""></c:set>
+						  <c:if test="${vote.v_confirm == 'Y'}">
+							<c:set var="chk" value="checked"></c:set>
+						  </c:if>
+						  <input ${chk} class="form-check-input" type="radio" name="v_confirm" id="inlineRadio1" value="Y">
+						  <label class="form-check-label me-md-3" for="inlineRadio1">확인</label>
+						</div>
+						<div>
+						  <c:set var="chk" value=""></c:set>
+						  <c:if test="${vote.v_confirm == 'N'}">
+							<c:set var="chk" value="checked"></c:set>
+						  </c:if>
+						  <input ${chk} class="form-check-input" type="radio" name="v_confirm" id="inlineRadio2" value="N">
+						  <label class="form-check-label" for="inlineRadio2">미확인</label>
+						</div>
+ 				    </div>
+ 				  </div>
+  --%>
